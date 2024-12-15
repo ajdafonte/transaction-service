@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import pt.caires.transactionservice.api.dto.AmountDTO;
 import pt.caires.transactionservice.api.dto.CreateTransactionRequestV1DTO;
 import pt.caires.transactionservice.domain.Amount;
-import pt.caires.transactionservice.domain.Terminal;
 import pt.caires.transactionservice.usecase.CreateTransactionRequest;
 
 class CreateTransactionRequestMapperTest {
@@ -30,7 +29,7 @@ class CreateTransactionRequestMapperTest {
         "4100000099998888");
     var expected =
         new CreateTransactionRequest(
-            new Terminal("e3211be6-d0cc-4718-905d-ab933cc91ecb", 50),
+            "e3211be6-d0cc-4718-905d-ab933cc91ecb", 50,
             new Amount(50, CURRENCY_DK),
             "4100000099998888");
 

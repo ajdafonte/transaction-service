@@ -5,7 +5,6 @@ import java.util.Currency;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pt.caires.transactionservice.domain.Amount;
-import pt.caires.transactionservice.domain.Terminal;
 
 class CreateTransactionTest {
 
@@ -19,7 +18,7 @@ class CreateTransactionTest {
   @Test
   void shouldCreateTransaction() {
     var request =
-        new CreateTransactionRequest(new Terminal("e3211be6-d0cc-4718-905d-ab933cc91ecb", 50),
+        new CreateTransactionRequest("e3211be6-d0cc-4718-905d-ab933cc91ecb", 50,
             new Amount(50, Currency.getInstance("DKK")),
             "4100000099998888");
     var expected = new CreateTransactionResult("success",
