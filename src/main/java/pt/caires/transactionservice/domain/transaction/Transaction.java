@@ -1,8 +1,9 @@
-package pt.caires.transactionservice.domain;
+package pt.caires.transactionservice.domain.transaction;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+import pt.caires.transactionservice.domain.Amount;
 
 @Getter
 @EqualsAndHashCode

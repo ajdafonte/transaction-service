@@ -1,4 +1,4 @@
-package pt.caires.transactionservice.domain;
+package pt.caires.transactionservice.domain.terminal;
 
 import java.util.Optional;
 

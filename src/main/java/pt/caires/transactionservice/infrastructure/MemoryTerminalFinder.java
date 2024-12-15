@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import org.springframework.stereotype.Component;
-import pt.caires.transactionservice.domain.Terminal;
-import pt.caires.transactionservice.domain.TerminalFinder;
+import pt.caires.transactionservice.domain.terminal.Terminal;
+import pt.caires.transactionservice.domain.terminal.TerminalFinder;
 
 @Component
 public class MemoryTerminalFinder implements TerminalFinder {

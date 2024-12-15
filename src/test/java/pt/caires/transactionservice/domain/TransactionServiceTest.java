@@ -8,6 +8,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import pt.caires.transactionservice.domain.terminal.Terminal;
+import pt.caires.transactionservice.domain.transaction.Transaction;
+import pt.caires.transactionservice.domain.transaction.TransactionRepository;
+import pt.caires.transactionservice.domain.transaction.TransactionService;
 
 @ExtendWith(MockitoExtension.class)
 class TransactionServiceTest {

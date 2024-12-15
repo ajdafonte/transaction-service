@@ -4,6 +4,7 @@ import static org.assertj.core.api.BDDAssertions.catchThrowable;
 import static org.assertj.core.api.BDDAssertions.then;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import pt.caires.transactionservice.domain.terminal.Terminal;
 
 class TerminalTest {
 

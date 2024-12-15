@@ -3,7 +3,7 @@ package pt.caires.transactionservice.infrastructure;
 import static org.assertj.core.api.BDDAssertions.then;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pt.caires.transactionservice.domain.Terminal;
+import pt.caires.transactionservice.domain.terminal.Terminal;
 
 class MemoryTerminalFinderTest {
 

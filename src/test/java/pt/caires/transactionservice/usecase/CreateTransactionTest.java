@@ -11,11 +11,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pt.caires.transactionservice.domain.Amount;
-import pt.caires.transactionservice.domain.Terminal;
-import pt.caires.transactionservice.domain.TerminalFinder;
-import pt.caires.transactionservice.domain.Transaction;
-import pt.caires.transactionservice.domain.TransactionService;
 import pt.caires.transactionservice.domain.exception.NotFoundServiceException;
+import pt.caires.transactionservice.domain.terminal.Terminal;
+import pt.caires.transactionservice.domain.terminal.TerminalFinder;
+import pt.caires.transactionservice.domain.transaction.Transaction;
+import pt.caires.transactionservice.domain.transaction.TransactionService;
 
 @ExtendWith(MockitoExtension.class)
 class CreateTransactionTest {

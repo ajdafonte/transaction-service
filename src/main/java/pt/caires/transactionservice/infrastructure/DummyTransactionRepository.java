@@ -3,8 +3,8 @@ package pt.caires.transactionservice.infrastructure;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import pt.caires.transactionservice.domain.Transaction;
-import pt.caires.transactionservice.domain.TransactionRepository;
+import pt.caires.transactionservice.domain.transaction.Transaction;
+import pt.caires.transactionservice.domain.transaction.TransactionRepository;
 
 @Component
 public class DummyTransactionRepository implements TransactionRepository {

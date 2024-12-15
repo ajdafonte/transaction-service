@@ -1,7 +1,9 @@
-package pt.caires.transactionservice.domain;
+package pt.caires.transactionservice.domain.transaction;
 
 import java.util.Currency;
 import org.springframework.stereotype.Service;
+import pt.caires.transactionservice.domain.Amount;
+import pt.caires.transactionservice.domain.terminal.Terminal;
 
 @Service
 public class TransactionService {
