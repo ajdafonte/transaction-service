@@ -9,39 +9,40 @@ import io.restassured.http.ContentType;
 
 public class CreateTransactionAcceptanceTest extends BaseAcceptanceTest {
 
-  private static String buildCreateTransactionRequestBody(String terminalId) {
+  private static final String VALID_TERMINAL_ID = "e3211be6-d0cc-4718-905d-ab933cc91ecb";
+
+  private static String buildCreateTransactionRequestBody(String terminalId,
+      int terminalThreatScore,
+      long amountValue) {
     return String.format(
         // language=JSON
         """
             {
               "terminalId": "%s",
-              "terminalThreatScore": 50,
+              "terminalThreatScore": "%d",
               "amount": {
                 "currency": "DKK",
-                "value": 50
+                "value": "%d"
               },
               "cardNumber": "4100000099998888"
-            }""", terminalId);
-  }
-
-  private static String buildCreateTransactionResponseBody() {
-    // language=JSON
-    return """
-        {"status":"success","message":"Transaction created","fraudScore":25}""";
+            }""", terminalId, terminalThreatScore, amountValue);
   }
 
   @Test
   void shouldCreateTransaction() {
-    var terminalId = "e3211be6-d0cc-4718-905d-ab933cc91ecb";
+
+    // language=JSON
+    var expectedResponse = """
+        {"status":"success","message":"Transaction created","fraudScore":0}""";
 
     RestAssured.given()
         .header(HttpHeaders.CONTENT_TYPE, ContentType.JSON)
-        .body(buildCreateTransactionRequestBody(terminalId))
+        .body(buildCreateTransactionRequestBody(VALID_TERMINAL_ID, 50, 50))
         .post("api/v1/transactions")
         .then()
         .statusCode(HttpURLConnection.HTTP_CREATED)
         .contentType(ContentType.JSON)
-        .body(is(buildCreateTransactionResponseBody()));
+        .body(is(expectedResponse));
   }
 
   @Test
@@ -50,11 +51,27 @@ public class CreateTransactionAcceptanceTest extends BaseAcceptanceTest {
 
     RestAssured.given()
         .header(HttpHeaders.CONTENT_TYPE, ContentType.JSON)
-        .body(buildCreateTransactionRequestBody(terminalId))
+        .body(buildCreateTransactionRequestBody(terminalId, 50, 50))
         .post("api/v1/transactions")
         .then()
         .statusCode(HttpURLConnection.HTTP_NOT_FOUND)
         .contentType(ContentType.JSON);
+  }
+
+  @Test
+  void shouldCreateTransactionWithFailureWhenAmountTooLargeForTerminalThreatScore() {
+    // language=JSON
+    var expectedResponse = """
+        {"status":"failure","message":"Amount too large for terminal threat score","fraudScore":25}""";
+
+    RestAssured.given()
+        .header(HttpHeaders.CONTENT_TYPE, ContentType.JSON)
+        .body(buildCreateTransactionRequestBody(VALID_TERMINAL_ID, 75, 750))
+        .post("api/v1/transactions")
+        .then()
+        .statusCode(HttpURLConnection.HTTP_CREATED)
+        .contentType(ContentType.JSON)
+        .body(is(expectedResponse));
   }
 
 }

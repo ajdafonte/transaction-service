@@ -1,8 +1,10 @@
 package pt.caires.transactionservice.domain;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @ToString
 @EqualsAndHashCode
 public class Terminal {
