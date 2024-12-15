@@ -8,11 +8,11 @@ import lombok.ToString;
 public class Terminal {
 
   private final String id;
-  private final int fraudScore;
+  private final int threatScore;
 
-  public Terminal(String id, int fraudScore) {
+  public Terminal(String id, int threatScore) {
     this.id = id;
-    this.fraudScore = fraudScore;
+    this.threatScore = threatScore;
   }
 
 }

@@ -14,7 +14,7 @@ public class CreateTransactionAcceptanceTest extends BaseAcceptanceTest {
     return """
            {
           "terminalId": "e3211be6-d0cc-4718-905d-ab933cc91ecb",
-          "terminalThreadScore": 50,
+          "terminalThreatScore": 50,
           "amount": {
             "currency": "DKK",
             "value": 50
